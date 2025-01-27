@@ -4,6 +4,15 @@ import weaviate
 import weaviate.classes as wvc
 from weaviate.classes.config import Configure, Property, DataType
 
+# Load the environment variables
+WEAVIATE_CLUSTER_URL = os.getenv("https://stgcnffaqt6eyejqojchq.c0.us-east1.gcp.weaviate.cloud")
+WEAVIATE_API_KEY = os.getenv("EKjZKHjAJ9ItnWY99MrwhVsDWBFTExnbhPis")
+
+# Initialize the Weaviate client
+client = weaviate.Client(
+    url=WEAVIATE_CLUSTER_URL,
+    auth_client_secret=weaviate.AuthApiKey(api_key=WEAVIATE_API_KEY),
+)
 
 client = weaviate.connect_to_local()
 
